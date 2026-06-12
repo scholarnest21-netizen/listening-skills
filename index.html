@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Process of Listening – ScholarNest</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --accent: #4f46e5;
+    --accent2: #7c3aed;
+    --gold: #f59e0b;
+    --bg: #f8f7ff;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --green: #059669;
+    --red: #dc2626;
+    --orange: #ea580c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 32px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .logo-mark {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(79,70,229,0.4);
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .logo-text span { color: #a78bfa; }
+
+  .chapter-badge {
+    display: inline-block;
+    background: rgba(79,70,229,0.3);
+    border: 1px solid rgba(167,139,250,0.4);
+    color: #c4b5fd;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  header h1 em { color: #a78bfa; font-style: normal; }
+
+  header p.subtitle {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+
+  .toc-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .toc-pills a {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    transition: all .2s;
+  }
+  .toc-pills a:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  main { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 64px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .section-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .icon-purple { background: #ede9fe; }
+  .icon-blue { background: #dbeafe; }
+  .icon-green { background: #d1fae5; }
+  .icon-orange { background: #ffedd5; }
+  .icon-red { background: #fee2e2; }
+  .icon-gold { background: #fef3c7; }
+
+  .section-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .prose {
+    font-size: 0.97rem;
+    color: #374151;
+    max-width: 780px;
+  }
+  .prose + .prose { margin-top: 12px; }
+
+  /* ── CARD GRID ── */
+  .card-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-body { font-size: 0.88rem; color: #4b5563; line-height: 1.6; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .tag-purple { background: #ede9fe; color: #6d28d9; }
+  .tag-blue { background: #dbeafe; color: #1d4ed8; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-red { background: #fee2e2; color: #991b1b; }
+
+  /* ── DIAGRAM: Hearing vs Listening ── */
+  .hvl-diagram {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0;
+    margin: 28px 0;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .hvl-left, .hvl-right {
+    padding: 28px 28px;
+  }
+  .hvl-left { background: #f0f9ff; border-right: 1px solid var(--border); }
+  .hvl-right { background: #faf5ff; }
+  .hvl-mid {
+    padding: 20px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--muted);
+  }
+  .hvl-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .hvl-left .hvl-label { color: #0369a1; }
+  .hvl-right .hvl-label { color: #7c3aed; }
+  .hvl-list { list-style: none; }
+  .hvl-list li {
+    font-size: 0.85rem;
+    color: #374151;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+  }
+  .hvl-list li:last-child { border-bottom: none; }
+  .hvl-list li::before { content: '→'; color: var(--muted); flex-shrink: 0; margin-top: 1px; }
+
+  /* ── FLOW DIAGRAM: Listening Process ── */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 24px 0;
+  }
+  .flow-step {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: center;
+    min-width: 110px;
+    flex: 1;
+  }
+  .flow-arrow {
+    font-size: 18px;
+    color: var(--muted);
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── LEVELS DIAGRAM ── */
+  .levels-diagram {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .level-bar {
+    border-radius: 12px;
+    padding: 18px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .level-bar::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    border-radius: 12px 0 0 12px;
+  }
+  .level-marginal { background: #fff7ed; }
+  .level-marginal::before { background: #f97316; }
+  .level-evaluative { background: #eff6ff; }
+  .level-evaluative::before { background: #3b82f6; }
+  .level-projective { background: #f0fdf4; }
+  .level-projective::before { background: #22c55e; }
+
+  .level-name {
+    font-weight: 700;
+    font-size: 0.97rem;
+    margin-bottom: 6px;
+  }
+  .level-desc { font-size: 0.85rem; color: #4b5563; }
+
+  /* ── BARRIERS TABLE-LIKE ── */
+  .barrier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .barrier-col {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .barrier-col-head {
+    padding: 14px 18px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: white;
+  }
+  .bc-tech { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+  .bc-lang { background: linear-gradient(135deg, #047857, #10b981); }
+  .bc-psych { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+  .barrier-col-body { padding: 14px 18px; background: white; }
+  .barrier-col-body li {
+    font-size: 0.83rem;
+    color: #374151;
+    padding: 5px 0;
+    border-bottom: 1px solid #f3f4f6;
+    list-style: none;
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
+  }
+  .barrier-col-body li:last-child { border-bottom: none; }
+  .barrier-col-body li::before { content: '•'; font-weight: 900; flex-shrink: 0; }
+  .bc-tech + .barrier-col-body li::before { color: #3b82f6; }
+  .bc-lang + .barrier-col-body li::before { color: #10b981; }
+  .bc-psych + .barrier-col-body li::before { color: #a78bfa; }
+
+  /* ── STAGES DIAGRAM ── */
+  .stages-wrap {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .stage-item {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .stage-num-col {
+    width: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .stage-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .stage-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin: 0 auto;
+  }
+  .stage-item:last-child .stage-line { display: none; }
+  .stage-body {
+    flex: 1;
+    padding: 0 0 28px 16px;
+  }
+  .stage-title {
+    font-weight: 700;
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+    margin-top: 6px;
+  }
+  .stage-bullets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .stage-bullet {
+    background: #f3f4f6;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    color: #374151;
+  }
+
+  /* ── TECHNIQUES ── */
+  .techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .tech-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: all .2s;
+  }
+  .tech-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .tech-num {
+    position: absolute;
+    top: 14px; right: 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(79,70,229,0.07);
+    line-height: 1;
+  }
+  .tech-icon { font-size: 22px; margin-bottom: 10px; }
+  .tech-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
+  .tech-desc { font-size: 0.84rem; color: #4b5563; line-height: 1.6; }
+
+  /* ── SKILLS WHEEL ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .skill-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: all .2s;
+  }
+  .skill-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.09); transform: translateY(-2px); }
+  .skill-emoji { font-size: 28px; margin-bottom: 10px; }
+  .skill-name { font-weight: 700; font-size: 0.88rem; }
+  .skill-sub { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+  /* ── FACTORS ── */
+  .factors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .factor-card {
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .factor-icon { font-size: 24px; margin-bottom: 10px; }
+  .factor-name { font-weight: 700; font-size: 0.93rem; margin-bottom: 8px; }
+  .factor-desc { font-size: 0.83rem; color: #4b5563; }
+
+  /* ── GROUP COMM BARRIERS ── */
+  .gcb-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .gcb-item {
+    background: #fff1f2;
+    border-left: 4px solid #f43f5e;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: #374151;
+  }
+
+  /* ── PURPOSES ── */
+  .purposes-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .purpose-pill {
+    background: white;
+    border: 2px solid var(--accent);
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 64px 0;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: linear-gradient(135deg, #ede9fe, #dbeafe);
+    border: 1px solid #c4b5fd;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: #1e1b4b;
+  }
+  .highlight-box strong { color: var(--accent2); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 28px;
+    font-size: 0.82rem;
+    margin-top: 32px;
+  }
+  footer strong { color: #a78bfa; }
+
+  @media (max-width: 600px) {
+    .hvl-diagram { grid-template-columns: 1fr; }
+    .hvl-mid { display: none; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    main { padding: 32px 18px; }
+    .header-inner { padding: 24px 18px 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-inner">
+    <div class="logo-row">
+      <div class="logo-mark">🦉</div>
+      <div class="logo-text">Scholar<span>Nest</span></div>
+    </div>
+    <div class="chapter-badge">Chapter 5</div>
+    <h1>The Process of<br><em>Listening</em></h1>
+    <p class="subtitle">A complete guide to hearing, understanding, barriers, levels, and skills of effective listening — from An Approach to Communication Skills.</p>
+    <div class="toc-pills">
+      <a href="#hearing">Hearing vs Listening</a>
+      <a href="#purposes">Purposes</a>
+      <a href="#factors">Factors</a>
+      <a href="#levels">Levels</a>
+      <a href="#barriers">Barriers</a>
+      <a href="#mgmt-barriers">Management Barriers</a>
+      <a href="#group">Group Communication</a>
+      <a href="#techniques">Techniques</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── 5.1 HEARING VS LISTENING ── -->
+  <section class="section" id="hearing">
+    <div class="section-header">
+      <div class="section-icon icon-purple">👂</div>
+      <div>
+        <div class="section-num">5.1</div>
+        <h2>Hearing & Listening</h2>
+      </div>
+    </div>
+    <p class="prose">Linguistic skills of expression involve speaking and writing (sending messages) and listening and reading (receiving them). In oral communication, we spend more time listening than speaking. Yet all kinds of hearing are <strong>not</strong> necessarily listening — the two are fundamentally different processes.</p>
+
+    <div class="hvl-diagram">
+      <div class="hvl-left">
+        <div class="hvl-label">🔊 Hearing</div>
+        <ul class="hvl-list">
+          <li>Purely physiological process</li>
+          <li>Sound waves make eardrums vibrate</li>
+          <li>Vibrations travel to the cochlea (inner ear)</li>
+          <li>Converted to electrochemical impulses</li>
+          <li>Brain identifies them as sounds</li>
+          <li>Fast, automatic, requires no effort</li>
+          <li>Cannot be stopped without ear plugs</li>
+        </ul>
+      </div>
+      <div class="hvl-mid">⟷</div>
+      <div class="hvl-right">
+        <div class="hvl-label">🧠 Listening</div>
+        <ul class="hvl-list">
+          <li>Involves paying close attention</li>
+          <li>Notices combinations and contrasts in speech</li>
+          <li>Brain interprets and infers meaning</li>
+          <li>Requires a decoding system</li>
+          <li>Analyzing, organizing, interpreting sound patterns</li>
+          <li>Deliberate effort required</li>
+          <li>Begins when interpretation &amp; inference begins</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="prose">The listening process, in short, involves <strong>analyzing speech sounds → organizing into patterns → interpreting patterns → understanding by inferring meaning.</strong></p>
+
+    <div style="margin-top:20px;">
+      <div class="flow">
+        <div class="flow-step">Sound Waves Received</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Patterns Analyzed</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Patterns Interpreted</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Meaning Inferred</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Message Understood</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.2 PURPOSES ── -->
+  <section class="section" id="purposes">
+    <div class="section-header">
+      <div class="section-icon icon-blue">🎯</div>
+      <div>
+        <div class="section-num">5.2</div>
+        <h2>Purposes of Listening</h2>
+      </div>
+    </div>
+    <p class="prose">There are various purposes of listening. We commonly listen to matters relating to our interests, attitudes, and beliefs. In the professional world, listening serves a very significant function.</p>
+
+    <div class="purposes-row">
+      <div class="purpose-pill">📚 To Learn</div>
+      <div class="purpose-pill">🔍 To Increase Understanding</div>
+      <div class="purpose-pill">😌 To Relieve Boredom</div>
+      <div class="purpose-pill">🤝 Interpersonal Transactions</div>
+      <div class="purpose-pill">⚖️ Decision Making</div>
+      <div class="purpose-pill">💬 Effective Response</div>
+    </div>
+
+    <div class="card-grid grid-3" style="margin-top:20px;">
+      <div class="card">
+        <div class="card-title">🤝 Formal & Informal Communication</div>
+        <div class="card-body">Informal and interpersonal transactions of messages play a significant role in day-to-day work performance. Harmonious personal relationships can be established through effective listening.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">⚖️ Decision Making</div>
+        <div class="card-body">Listening plays a substantial and definitive role in the process of decision-making. Company executives frequently work upon their listening skills before deciding on a course of action.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">💬 Adequate Response</div>
+        <div class="card-body">An adequate, relevant and measured response is not possible unless one listens carefully to the stimulus. Listening is the foundation of any meaningful reply.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.3 FACTORS ── -->
+  <section class="section" id="factors">
+    <div class="section-header">
+      <div class="section-icon icon-green">⚙️</div>
+      <div>
+        <div class="section-num">5.3</div>
+        <h2>Factors Affecting Listening</h2>
+      </div>
+    </div>
+    <p class="prose">A number of factors affect our habit, method and purposes of listening.</p>
+
+    <div class="factors-grid">
+      <div class="factor-card">
+        <div class="factor-icon">🏛️</div>
+        <div class="factor-name">Social Role</div>
+        <div class="factor-desc">Listening is influenced by the role we play in society. Professionals like judges, counsellors, psychiatrists and medical practitioners must have special competence in listening. Poor listening would prove detrimental to their efficiency.</div>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">💡</div>
+        <div class="factor-name">Motivation</div>
+        <div class="factor-desc">We listen when we have an idea or expectation of benefiting from it. It is human nature to seek advantages, reward or benefits — at mental, physical, social, or cultural levels.</div>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">🧩</div>
+        <div class="factor-name">Personality</div>
+        <div class="factor-desc">Analytical and thoughtful persons are generally better listeners. Self-centred, aggressive, domineering or argumentative people are usually bad listeners.</div>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">🔄</div>
+        <div class="factor-name">Attitudes</div>
+        <div class="factor-desc">Our attitude toward a matter or person affects our listening. We tend to ignore those we dislike or those with whom we do not have a good rapport.</div>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">🏠</div>
+        <div class="factor-name">Physical Environment</div>
+        <div class="factor-desc">Physical setting plays an important role. Listening is easier in a calm and quiet place than at a noisy location like a railway station.</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:24px;">
+      <strong>Key Insight:</strong> Listening makes communication happen at two levels — <em>the level of words</em> and <em>the level of feelings</em>. If we do not understand how a person feels, we have not truly understood them. We cannot listen to others unless we first learn to listen to ourselves.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.4 LEVELS ── -->
+  <section class="section" id="levels">
+    <div class="section-header">
+      <div class="section-icon icon-orange">📊</div>
+      <div>
+        <div class="section-num">5.4</div>
+        <h2>Levels of Listening</h2>
+      </div>
+    </div>
+    <p class="prose">There are primarily three levels of listening, each reflecting a different quality of engagement with the speaker's message.</p>
+
+    <div class="levels-diagram">
+      <div class="level-bar level-marginal">
+        <div class="level-name" style="color:#c2410c;">🟠 Marginal Listening — Lowest Level</div>
+        <div class="level-desc">Occurs when the speaker's pace is slow, causing the listener's mind to wander. The majority of the message is not heard or understood. The person may hear the words but they hardly communicate any sense. This can lead to lack of understanding and even be seen as an insult to the speaker.</div>
+      </div>
+      <div class="level-bar level-evaluative">
+        <div class="level-name" style="color:#1d4ed8;">🔵 Evaluative Listening — Middle Level</div>
+        <div class="level-desc">Occurs when a listener gets free time to evaluate the speaker's message during oral communication. The receiver begins to develop a response contrary to the intent of the message — instead of one idea being shared, two conflicting ideas develop. Particularly problematic when speech is loaded with emotion or threatens the receiver's security or identity.</div>
+      </div>
+      <div class="level-bar level-projective">
+        <div class="level-name" style="color:#15803d;">🟢 Projective Listening — Highest Level</div>
+        <div class="level-desc">Provides listeners with the greatest potential for effective communication. With an empathetic gesture, the listener projects themselves into the speaker's position to understand what is implied in the speaker's viewpoint. Effective listening must precede any evaluation — understanding comes first. The listener need not agree but must understand. Effective listening is invariably empathetic; it requires listening to feelings as well as words.</div>
+      </div>
+    </div>
+
+    <div class="card-grid grid-3" style="margin-top:12px;">
+      <div class="card" style="border-top: 3px solid #f97316; text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">😶</div>
+        <div class="card-title" style="justify-content:center;">Marginal</div>
+        <div class="card-body">Mind wanders · Words heard, not understood · Passive</div>
+      </div>
+      <div class="card" style="border-top: 3px solid #3b82f6; text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">🤔</div>
+        <div class="card-title" style="justify-content:center;">Evaluative</div>
+        <div class="card-body">Careful listening · Stops at response formation · Partial</div>
+      </div>
+      <div class="card" style="border-top: 3px solid #22c55e; text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">🫂</div>
+        <div class="card-title" style="justify-content:center;">Projective</div>
+        <div class="card-body">Empathetic · Understands speaker's viewpoint · Best</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.5 BARRIERS TO COMMUNICATION ── -->
+  <section class="section" id="barriers">
+    <div class="section-header">
+      <div class="section-icon icon-red">🚧</div>
+      <div>
+        <div class="section-num">5.5</div>
+        <h2>Barriers to Communication</h2>
+      </div>
+    </div>
+    <p class="prose">In communication, a number of barriers prevent the achievement of desired results. Three primary categories of barriers are listed below, followed by the four stages at which these barriers can occur.</p>
+
+    <div class="card-grid grid-3" style="margin-top:20px;">
+      <div class="card">
+        <span class="tag tag-red">Barrier 1</span>
+        <div class="card-title">🗂️ Lack of Common Frame of Reference</div>
+        <div class="card-body">Implies the social and cultural context in which communication takes place. If the context is well defined, both sender and receiver can focus meaningfully on the message.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-blue">Barrier 2</span>
+        <div class="card-title">😴 Mental & Physical Fatigue</div>
+        <div class="card-body">Sometimes one is unable to communicate effectively because of physical fatigue or when psychologically unprepared — due to previous unpleasant experiences in similar situations.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-orange">Barrier 3</span>
+        <div class="card-title">↔️ The Divergent Messages</div>
+        <div class="card-body">The divergence between sent and received messages is increasingly serious as messages get more complicated. Barriers also occur at each successive stage of communication.</div>
+      </div>
+    </div>
+
+    <!-- 4 Stages -->
+    <h3 style="margin: 32px 0 16px; font-family:'Playfair Display',serif; font-size:1.2rem;">The Four Stages of Communication Barriers</h3>
+    <div class="stages-wrap">
+      <div class="stage-item">
+        <div class="stage-num-col">
+          <div class="stage-circle" style="background:#3b82f6;">1</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-body">
+          <div class="stage-title">Stage of Hearing</div>
+          <div class="stage-bullets">
+            <span class="stage-bullet">Listener may doze off</span>
+            <span class="stage-bullet">External noise</span>
+            <span class="stage-bullet">Poor articulation</span>
+            <span class="stage-bullet">Inadequate volume</span>
+            <span class="stage-bullet">Microphone malfunction</span>
+            <span class="stage-bullet">Language/dialect issues</span>
+          </div>
+        </div>
+      </div>
+      <div class="stage-item">
+        <div class="stage-num-col">
+          <div class="stage-circle" style="background:#8b5cf6;">2</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-body">
+          <div class="stage-title">Stage of Understanding</div>
+          <div class="stage-bullets">
+            <span class="stage-bullet">Difficulty recognizing words</span>
+            <span class="stage-bullet">Difficulty in thought process</span>
+            <span class="stage-bullet">Poor organization of material</span>
+            <span class="stage-bullet">Convoluted thinking</span>
+            <span class="stage-bullet">Educational deficiencies</span>
+            <span class="stage-bullet">Language barriers</span>
+            <span class="stage-bullet">Jargon</span>
+            <span class="stage-bullet">Misinterpretation</span>
+          </div>
+        </div>
+      </div>
+      <div class="stage-item">
+        <div class="stage-num-col">
+          <div class="stage-circle" style="background:#f59e0b;">3</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-body">
+          <div class="stage-title">Stage of Acceptability</div>
+          <div class="stage-bullets">
+            <span class="stage-bullet">Lack of rational justification</span>
+            <span class="stage-bullet">Lacking appropriate feeling</span>
+            <span class="stage-bullet">Vested interests elsewhere</span>
+            <span class="stage-bullet">Conflicting objectives</span>
+            <span class="stage-bullet">Poor chemistry between speaker & listener</span>
+          </div>
+        </div>
+      </div>
+      <div class="stage-item">
+        <div class="stage-num-col">
+          <div class="stage-circle" style="background:#ef4444;">4</div>
+          <div class="stage-line"></div>
+        </div>
+        <div class="stage-body">
+          <div class="stage-title">Stage of Speaker Lacking Feedback</div>
+          <div class="stage-bullets">
+            <span class="stage-bullet">Speaker reads script, ignores audience</span>
+            <span class="stage-bullet">Unaware audience is bored</span>
+            <span class="stage-bullet">Discovers problem only at Q&A</span>
+            <span class="stage-bullet">No adjustment to audience needs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional barriers -->
+    <div class="card-grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <div class="card-title">🔤 Semantic Difficulties</div>
+        <div class="card-body">Arise when the sender uses ambiguous expressions or highly inappropriate vocabulary. Every sender also consciously or unconsciously superimposes their attitudes on what they communicate. A message is not just organized language — it is also a verbal means to realize an intention and attitude.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">😤 Differing Attitudes & Fear of Evaluation</div>
+        <div class="card-body">When the attitude of sender and receiver clash, communication suffers. Some persons feel reluctant to speak because they are afraid of being evaluated by peers or superiors. Each language has social, regional, professional, and local varieties — using the wrong one causes communication to suffer.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.6 COMMUNICATION BARRIERS IN MANAGEMENT ── -->
+  <section class="section" id="mgmt-barriers">
+    <div class="section-header">
+      <div class="section-icon icon-gold">🏢</div>
+      <div>
+        <div class="section-num">5.6</div>
+        <h2>Communication Barriers in Management</h2>
+      </div>
+    </div>
+
+    <div class="barrier-grid">
+      <div class="barrier-col">
+        <div class="barrier-col-head bc-tech">⚙️ Technical Barriers</div>
+        <ul class="barrier-col-body">
+          <li>Timing of communication</li>
+          <li>Overloaded information</li>
+          <li>Cultural divergences</li>
+        </ul>
+      </div>
+      <div class="barrier-col">
+        <div class="barrier-col-head bc-lang">🔤 Linguistic Barriers</div>
+        <ul class="barrier-col-body">
+          <li>Vocabulary mismatch</li>
+          <li>Semantic differences</li>
+          <li>Jargon & technical terms</li>
+        </ul>
+      </div>
+      <div class="barrier-col">
+        <div class="barrier-col-head bc-psych">🧠 Psychological Barriers</div>
+        <ul class="barrier-col-body">
+          <li>Information filtering</li>
+          <li>Lack of trust & openness</li>
+          <li>Jealousy</li>
+          <li>Preoccupation</li>
+          <li>Hearing only what we expect</li>
+          <li>Perception set differences</li>
+          <li>Noise</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <span class="tag tag-blue">Technical</span>
+        <div class="card-title">⏱️ Timing</div>
+        <div class="card-body">Timing of transmitting a message is crucial for its impact. A manager who reprimands a worker six months after an event will likely find the worker has forgotten it entirely.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-blue">Technical</span>
+        <div class="card-title">📦 Overloaded Information</div>
+        <div class="card-body">Occurs when an individual is presented with too much information in too little time. When excessive information is provided, a major breakdown in communication occurs.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-blue">Technical</span>
+        <div class="card-title">🌍 Cultural Divergences</div>
+        <div class="card-body">A 30-minute wait in the US may signal low status; in India it is common; in Japan, long delays are a negotiation tactic. Business distance also varies — Indians typically conduct business at 5–8 feet.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-green">Linguistic</span>
+        <div class="card-title">📖 Vocabulary</div>
+        <div class="card-body">Every field has its own vocabulary set. Statisticians, skilled mechanics, and unskilled labourers each understand different terms. Using vocabulary beyond the audience's linguistic competence causes communication breakdown.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-green">Linguistic</span>
+        <div class="card-title">🔀 Semantics</div>
+        <div class="card-body">When a receiver attaches meanings different from those intended while decoding, a semantic lapse occurs. English is particularly prone to this as one word may connote multiple meanings.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-green">Linguistic</span>
+        <div class="card-title">💬 Jargons</div>
+        <div class="card-body">A jargon is a set of vocabulary items used by members of a specific class related to a specific field. Virtually every industry develops jargon — and jargon for one group may be entirely unfamiliar to another.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-purple">Psychological</span>
+        <div class="card-title">🔍 Information Filtering</div>
+        <div class="card-body">As messages move through an organization, each receiver eliminates certain data while re-encoding it for the next person. This "information filtering" can completely change the original intent of a message.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-purple">Psychological</span>
+        <div class="card-title">🤝 Lack of Trust & Openness</div>
+        <div class="card-body">Managers and employees must trust each other for positive changes. An open and receptive attitude encourages employee feedback. For Japanese managers, success in business is linked to the trust they have in peers and superiors.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-purple">Psychological</span>
+        <div class="card-title">😒 Jealousy</div>
+        <div class="card-body">Performance and accomplishments of a manager may be viewed as a threat by peers and superiors. Because of jealousy, wrong messages may be communicated to upper management.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-purple">Psychological</span>
+        <div class="card-title">🤯 Preoccupation</div>
+        <div class="card-body">People preoccupied with themselves hardly hear the message they are supposed to listen to. They seem absent-minded, causing a loss in the impact and purpose of communication.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-purple">Psychological</span>
+        <div class="card-title">👂 Hearing What We Expect</div>
+        <div class="card-body">We are conditioned to hear what we expect rather than what is actually said. Through years of social and cultural grooming, we develop preconceptions about what is being said and meant.</div>
+      </div>
+      <div class="card">
+        <span class="tag tag-purple">Psychological</span>
+        <div class="card-title">👁️ Perception Set Differences</div>
+        <div class="card-body">Everyone has a tendency to interpret information in a certain way (their perception set), shaped by past experience, education, emotions, values, and beliefs. Efficient managers learn to be more analytical and broad-minded to overcome this tendency.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.7 GROUP COMMUNICATION BARRIERS ── -->
+  <section class="section" id="group">
+    <div class="section-header">
+      <div class="section-icon icon-red">👥</div>
+      <div>
+        <div class="section-num">5.7</div>
+        <h2>Barriers to Effective Group Communication</h2>
+      </div>
+    </div>
+    <p class="prose">Barriers to communication also affect group communications. Group behaviour, collaboration and competition may also create barriers. Faction-centric perspectives cause hindrances in intergroup communication, polarizing the interacting groups and causing communications to come down to the level of bargaining rather than transmitting facts.</p>
+
+    <div class="gcb-list">
+      <div class="gcb-item">⚔️ Conflicts arising from winning or losing</div>
+      <div class="gcb-item">🎯 Members pursuing their own objectives only</div>
+      <div class="gcb-item">🙈 Members understanding their own needs but concealing them</div>
+      <div class="gcb-item">💪 Members aggrandizing their power and dominance</div>
+      <div class="gcb-item">😰 Yielding to or exercising threats to get submission</div>
+      <div class="gcb-item">📣 Overemphasizing own needs, objectives, and positions</div>
+      <div class="gcb-item">😈 Adopting an attitude of exploiting other members</div>
+      <div class="gcb-item">🏆 Emphasizing differences and one's own superiority</div>
+      <div class="gcb-item">🚫 Isolating other persons or groups</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.8 TECHNIQUES ── -->
+  <section class="section" id="techniques">
+    <div class="section-header">
+      <div class="section-icon icon-purple">🔧</div>
+      <div>
+        <div class="section-num">5.8</div>
+        <h2>Techniques to Improve Listening Ability</h2>
+      </div>
+    </div>
+    <p class="prose">An analysis of the techniques followed in the process of listening is essential to improve one's listening ability. It starts with developing a <em>desire to learn how to listen</em> — one must analyze their own shortcomings and have a propensity to listen more than to talk.</p>
+
+    <div class="techniques-grid">
+      <div class="tech-card">
+        <div class="tech-num">1</div>
+        <div class="tech-icon">🛡️</div>
+        <div class="tech-name">Resisting Distractions</div>
+        <div class="tech-desc">Because we think faster than we speak, attention begins to wander. Make a conscious effort to bring the mind back to what is being said. Focus on the message — not the speaker's appearance, delivery, or mannerisms. Be alert to both verbal and non-verbal means of communication.</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-num">2</div>
+        <div class="tech-icon">🎧</div>
+        <div class="tech-name">Focusing on Manner of Listening</div>
+        <div class="tech-desc">Skilled listeners focus on the message rather than the matter of listening. Each speech contains a limited number of points. Adapting to the right manner of listening helps identify these points and the supporting evidence. Evaluate evidence for accuracy, objectivity, relevance and adequacy.</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-num">3</div>
+        <div class="tech-icon">⏳</div>
+        <div class="tech-name">Delaying Evaluation</div>
+        <div class="tech-desc">Give the speaker adequate time to finish. Do not jump to conclusions. First understand the message, then evaluate it. Premature judgement hampers effective listening. Remove mental or emotional blocks. A good listener always keeps their mind open to ideas and information.</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-num">4</div>
+        <div class="tech-icon">📝</div>
+        <div class="tech-name">Taking Notes</div>
+        <div class="tech-desc">Perceiving the essence of speech is not the end of listening — one must also record what is listened to. The technique of note-taking is to acquire main points by writing the key words used by the speaker. Taking notes guides us to become more attentive and creative listeners.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── 5.9 SKILLS ── -->
+  <section class="section" id="skills">
+    <div class="section-header">
+      <div class="section-icon icon-green">⭐</div>
+      <div>
+        <div class="section-num">5.9</div>
+        <h2>Skills of Effective Listening</h2>
+      </div>
+    </div>
+    <p class="prose">Effective listening requires energy to concentrate on what is being said, to interpret and understand it, and to evaluate objectively what has been understood. Incompetent listeners do not deploy the right amount of energy — their attention drifts, they follow private side-tracks, or they counter-argue internally.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-emoji">🎯</div>
+        <div class="skill-name">Concentration</div>
+        <div class="skill-sub">The art of concentration — largely a matter of attitude. Inculcate the habit of concentrating on the message the speaker is trying to send.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-emoji">⚡</div>
+        <div class="skill-name">Mental Alertness</div>
+        <div class="skill-sub">Improved by physical alertness — not just fitness, but how one positions the body, limbs, and head. Self-assess your qualities of competence as a listener.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-emoji">🔗</div>
+        <div class="skill-name">Chemistry with Speaker</div>
+        <div class="skill-sub">Developing positive chemistry between listener and speaker helps keep track of the speech and prevents the mind from going wayward. Both parties share responsibility.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-emoji">👁️</div>
+        <div class="skill-name">Eye Contact</div>
+        <div class="skill-sub">Proper eye contact is particularly important for interpreting non-verbal clues. Looking at the speaker shows interest. Facial gestures — raised eyebrows, nods, frowns — all make communication effective.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-emoji">🪑</div>
+        <div class="skill-name">Posture</div>
+        <div class="skill-sub">An upright posture helps better concentration. Leaning slightly forward shows interest and encourages the speaker. Leaning back expresses lack of interest or a disinterested gesture.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-emoji">📋</div>
+        <div class="skill-name">Note-taking</div>
+        <div class="skill-sub">Recommended as an important aid to the listener. Also helps the speaker by giving confidence when listeners take notes. A note-taker paraphrases the speaker's thought in fewer words, summarizing feelings and understanding.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-emoji">🖼️</div>
+        <div class="skill-name">Speaker's Frame of Reference</div>
+        <div class="skill-sub">A skilful listener concentrates on the speaker's line of interest and tries to understand the speaker's framework. A nod affirming this frame increases the speaker's sense of being heard and accepted.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-emoji">❓</div>
+        <div class="skill-name">Listener's Questions</div>
+        <div class="skill-sub">Questions starting with Do/Have/Will/Is invite yes/no answers. What-questions seek clarification; Why/How questions demand justification. Clarifying questions unify speaker and listener; justification questions can set them apart.</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:28px;">
+      <strong>Feedback Loop:</strong> Listeners check the accuracy of communication through feedback. A listener who doubts should give their feedback in their own words — reflecting what was understood — rather than simply asking the speaker to repeat. This gives the speaker a chance to confirm or modify the message, ensuring it is clearly understood.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <strong>ScholarNest</strong> · Chapter 5: The Process of Listening<br>
+    From <em>An Approach to Communication Skills</em> · Pages 52–67
+  </div>
+</footer>
+
+</body>
+</html>
